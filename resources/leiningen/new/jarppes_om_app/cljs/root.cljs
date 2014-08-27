@@ -12,12 +12,7 @@
     (html
       [:div
        [:h1 "Welcome to " info/app-name]
-       [:p "I think it's time to start some serious hacking..."]
-       [:button
-        {:on-click (fn [e]
-                     (js/console.log "click!")
-                     (js/window.foo "bar"))}
-        "Click me"]])))
+       [:p "I think it's time to start some serious hacking..."]])))
 
 (defn start []
   (om/root render-root app-state {:target (js/document.getElementById "app")}))
