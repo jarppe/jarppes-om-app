@@ -21,4 +21,7 @@
       [:body
        [:div#app
         [:h1 "Loading, please wait..."]]]
-      (include-js "{{name}}.js"))))
+      (if env/prod?
+        (include-js "{{name}}.js")
+        (concat (include-js "out/goog/base.js" "react.js" "{{name}}.js")
+                [[:script {:type "text/javascript"} "goog.require('{{name}}.ui.main');"]])))))

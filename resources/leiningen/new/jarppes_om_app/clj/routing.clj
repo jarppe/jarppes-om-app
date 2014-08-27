@@ -1,5 +1,6 @@
 (ns {{name}}.routing
-  (:require [ring.util.http-response :refer [ok content-type] :as resp]
+  (:require [clojure.java.io :as io]
+            [ring.util.http-response :refer [ok content-type] :as resp]
             [compojure.core :refer [context]]
             [compojure.route :as route]
             [compojure.api.core :refer [defroutes* middlewares GET* POST*]]
@@ -12,6 +13,12 @@
     (-> index-page
         (ok)
         (content-type "text/html; charset=\"UTF-8\"")))
+  (GET* "/react.js" []
+    (-> "react/react.js"
+        (io/resource)
+        (io/input-stream)
+        (ok)
+        (content-type "application/javascript; charset=\"UTF-8\"")))
   (middlewares [(api-middleware)]
     (context "/api" []
       (GET* "/info" []

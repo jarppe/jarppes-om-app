@@ -37,8 +37,9 @@
                        :aot [{{name}}.main]}}
   :cljsbuild {:builds {:dev {:source-paths ["target/generated/cljs" "src/cljs" "src/cljs-main"]
                              :compiler {:output-to "resources/public/{{name}}.js"
-                                        :output-dir "target/js/out-dev"
-                                        :optimizations :whitespace
+                                        :output-dir "resources/public/out"
+                                        :source-map "resources/public/{{name}}.js.map"
+                                        :optimizations :none
                                         :pretty-print true
                                         :preamble ["react/react.js"]
                                         :externs ["react/externs/react.js"]}}
