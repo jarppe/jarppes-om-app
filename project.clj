@@ -1,4 +1,4 @@
-(defproject jarppes-om-app/lein-template "0.1.2-SNAPSHOT"
+(defproject jarppes-om-app/lein-template "0.1.3-SNAPSHOT"
   :description "Simple lein template to create Clojure, ClojureScript, OM application"
   :url "https://github.com/jarppe/jarppes-om-app"
   :license {:name "Eclipse Public License"
